@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>WPS Search</title>
+
+
+<style>
+    .tabs{
+    display:flex;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.tab-btn{
+
+    padding:10px 20px;
+    cursor:pointer;
+    border:none;
+    background:#ddd;
+
+}
+
+.tab-btn.active{
+
+    background:#007bff;
+    color:white;
+
+}
+
+.tab-content{
+
+    display:none;
+    padding:20px;
+
+}
+
+.tab-content.active{
+
+    display:block;
+
+}
+
+input{
+
+    padding:10px;
+    width:180px;
+
+}
+
+button{
+
+    padding:10px 20px;
+    cursor:pointer;
+
+}
+
+#table{
+
+    width:100%;
+    margin-top:30px;
+    border-collapse:collapse;
+    display: none;
+    font-weight: bold;
+}
+
+#table, th{
+    border:2px solid black;
+    padding:20px;
+    text-align: center;
+}
+
+#table, td{
+    border:2px solid black;
+}
+
+.table2, tr, td {
+    line-height: 30px;
+}
+
+tr:nth-child(even){
+
+    background:#f2f2f2;
+
+}
+
+.material-table {
+    width: 100%;
+    padding: 5px;
+    font-size: 15px;
+    border: 1px solid black;
+    border-collapse:collapse;
+    text-align: center;
+}
+
+.material-table .bold {
+    font-weight: bold;
+}
+
+/* tab-2 */
+.p4 { background:#e83e8c; color:#fff; }
+.p5a { background:#0d6efd; color:#fff; }
+.p91 { background:#5cb85c; color:#fff; }
+.p92 { background:#29b6f6; color:#fff; }
+.p7 { background:#f57c00; color:#fff; }
+.p8 { background:#222; color:#fff; }
+.p43 { background:#fff; color:#000; }
+</style>
+
+</head>
+
+<body>
+
+<div class="tabs">
+
+    <button class="tab-btn active" data-tab="tab-1">
+        Vật liệu, loại que hàn /  Kích thước Harp
+    </button>
+
+    <button class="tab-btn" data-tab="tab-2">
+        Mã, màu vật liệu
+    </button>
+
+</div>
+
+<div class="tab-content active" id="tab-1">
+    <input
+        type="number"
+        id="search"
+        placeholder="Số Harp (Ví dụ: 16)">
+
+        <button onclick="searchData()">
+        Tìm kiếm
+        </button>
+
+        <table id="table">
+            <thead style="background-color: #007bff;">
+                <tr>
+                    <th>Vật liệu</th>
+                    <th>WPS</th>
+                    <th>Que hàn</th>
+                    <th> Kích thước </th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    
+        <p> <u> <i> *Lưu ý:</i></u>
+            <ul>
+            <li>
+                Sp = Support
+            </li>
+            <li>
+                Stp = Stopper
+            </li>
+
+        </ul>
+        </p>
+</div>
+
+<div class="tab-content" id="tab-2">
+    <table class="material-table">
+
+    <thead>
+
+        <tr>
+            <th class="bold">Phân loại</th>
+
+            <th colspan="2">P1 (Carbon)</th>
+
+            <th class="p4">P4</th>
+
+            <th class="p5a">P5A</th>
+
+            <th class="p91">P15E (P91)</th>
+
+            <th class="p92">P15E (P92)</th>
+
+            <th class="p7">P7</th>
+
+            <th colspan="2" class="p8">P8</th>
+
+            <th class="p43">P43</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        <!-- Pipe -->
+
+        <tr>
+
+            <td class="bold" rowspan="2">Pipe</td>
+
+            <td>SA-106B</td>
+
+            <td>SA-106C</td>
+
+            <td class="p4">SA335 P11</td>
+
+            <td class="p5a">SA335-22-2</td>
+
+            <td class="p91">SA335 P91</td>
+
+            <td class="p92">SA335 P92</td>
+
+            <td class="p7">SA240-405</td>
+
+            <td class="p8">SA312 TP304</td>
+            <td class="p8">A213 S30432</td>
+
+            <td class="p43">SB-167</td>
+
+        </tr>
+        <tr>
+
+            <td></td>
+
+            <td></td>
+
+            <td class="p4">SA335 P12</td>
+
+            <td class="p5a"></td>
+
+            <td class="p91"></td>
+
+            <td class="p92"></td>
+
+            <td class="p7">SA240-409</td>
+
+            <td class="p8"></td>
+            <td class="p8"></td>
+
+            <td class="p43"></td>
+
+        </tr>
+
+
+
+
+        <!-- Tube -->
+
+        <tr>
+
+            <td class="bold" rowspan="2">Tube</td>
+
+            <td>SA178A</td>
+
+            <td>SASA210-C</td>
+
+            <td class="p4">SA213 T11</td>
+
+            <td class="p5a">SA213 T22</td>
+
+            <td class="p91">SA213 T91</td>
+
+            <td class="p92">SA213 T92</td>
+
+            <td class="p7">SA268 TP304</td>
+
+            <td class="p8"></td>
+            <td class="p8"></td>
+
+            <td class="p43"></td>
+
+        </tr>
+        <tr>
+
+            <td>SA178 C/D</td>
+
+            <td>SA210-A1</td>
+
+            <td class="p4">SA213 T12</td>
+
+            <td class="p5a">SA213 T23</td>
+
+            <td class="p91"></td>
+
+            <td class="p92"></td>
+
+            <td class="p7"></td>
+
+            <td class="p8"></td>
+            <td class="p8"></td>
+
+            <td class="p43"></td>
+
+        </tr>
+
+
+
+        <!-- Plate -->
+
+         <tr>
+
+            <td class="bold" rowspan="3">Plate (Thép tấm)</td>
+
+            <td>SA-36</td>
+
+            <td>A516-70</td>
+
+            <td class="p4">SA387 Gr.11</td>
+
+            <td class="p5a">SA387 Gr.22</td>
+
+            <td class="p91">SA387-91.Cl.2</td>
+
+            <td class="p92">SA387-92.Cl.2</td>
+
+            <td class="p7">SA240 TP409</td>
+
+            <td class="p8">SA240-304H</td>
+            <td class="p8">SA240-316</td>
+
+            <td class="p43">SB435</td>
+
+        </tr>
+        <tr>
+
+            <td></td>
+
+            <td>A15-70</td>
+
+            <td class="p4">SA387 Gr12</td>
+
+            <td class="p5a"></td>
+
+            <td class="p91"></td>
+
+            <td class="p92"></td>
+
+            <td class="p7"></td>
+
+            <td class="p8">SA240-309H</td>
+            <td class="p8">A193-BB/194-B</td>
+
+            <td class="p43"></td>
+
+        </tr>
+        <tr>
+
+            <td></td>
+
+            <td></td>
+
+            <td class="p4"></td>
+
+            <td class="p5a"></td>
+
+            <td class="p91"></td>
+
+            <td class="p92"></td>
+
+            <td class="p7"></td>
+
+            <td class="p8">SA240-310</td>
+            <td class="p8"></td>
+
+            <td class="p43"></td>
+
+        </tr>
+
+        <!-- Forging -->
+         <tr>
+
+    <td class="bold" rowspan="4">Forging (Thép rèn)</td>
+
+    <td>A105</td>
+
+    <td>A108</td>
+
+    <td class="p4">SA182 F11-1</td>
+
+    <td class="p5a">SA182 F22-3</td>
+
+    <td class="p91">A182-F91</td>
+
+    <td class="p92">A182-F92</td>
+
+    <td class="p7"></td>
+
+    <td class="p8">SA182 F304</td>
+
+    <td class="p8">SA479 309S</td>
+
+    <td class="p43"></td>
+
+</tr>
+
+<tr>
+
+    <td></td>
+
+    <td></td>
+
+    <td class="p4">SA182 F11-3</td>
+
+    <td class="p5a"></td>
+
+    <td class="p91"></td>
+
+    <td class="p92"></td>
+
+    <td class="p7"></td>
+
+    <td class="p8">SA479 304</td>
+
+    <td class="p8">SA351 CH20</td>
+
+    <td class="p43"></td>
+
+</tr>
+
+<tr>
+
+    <td></td>
+
+    <td></td>
+
+    <td class="p4">SA182 F12-1</td>
+
+    <td class="p5a"></td>
+
+    <td class="p91"></td>
+
+    <td class="p92"></td>
+
+    <td class="p7"></td>
+
+    <td class="p8">SA479 304H</td>
+
+    <td class="p8"></td>
+
+    <td class="p43"></td>
+
+</tr>
+
+<tr>
+
+    <td></td>
+
+    <td></td>
+
+    <td class="p4">SA182 F12-2</td>
+
+    <td class="p5a"></td>
+
+    <td class="p91"></td>
+
+    <td class="p92"></td>
+
+    <td class="p7"></td>
+
+    <td class="p8"></td>
+
+    <td class="p8"></td>
+
+    <td class="p43"></td>
+
+</tr>
+
+<!-- Fitting -->
+ <tr>
+
+    <td class="bold" rowspan="2">Fitting</td>
+
+    <td>A234 WPB</td>
+
+    <td></td>
+
+    <td class="p4">A234 WP11</td>
+
+    <td class="p5a">A234 WP22</td>
+
+    <td class="p91">A234 WP91</td>
+
+    <td class="p92">A234 WP92</td>
+
+    <td class="p7"></td>
+
+    <td class="p8">A403 WP304</td>
+
+    <td class="p8">A403 WP316</td>
+
+    <td class="p43"></td>
+
+</tr>
+
+<tr>
+
+    <td></td>
+
+    <td></td>
+
+    <td class="p4">A234 WP12</td>
+
+    <td class="p5a"></td>
+
+    <td class="p91"></td>
+
+    <td class="p92"></td>
+
+    <td class="p7"></td>
+
+    <td class="p8">A403 WP304H</td>
+
+    <td class="p8"></td>
+
+    <td class="p43"></td>
+
+</tr>
+
+<!-- Màu -->
+
+<tr>
+
+    <td class="bold"> Màu </td>
+
+    <td class="bold" colspan="2">Màu trắng</td>
+
+    <td class="bold p4">Màu hồng</td>
+
+    <td class="bold p5a">Màu xanh nước biển</td>
+
+    <td class="bold p91">Màu xanh lá cây</td>
+
+    <td class="bold p92">Màu xanh nhạt</td>
+
+    <td class="bold p7"> Màu cam </td>
+
+    <td colspan="2" class="bold p8"> Màu đen </td>
+
+    <td class="bold p43"> Không đánh dấu </td>
+
+</tr>
+
+    </tbody>
+
+</table>
+</div>
+<script>
+    const buttons = document.querySelectorAll(".tab-btn");
+    const contents = document.querySelectorAll(".tab-content");
+
+    buttons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            // Bỏ active của tất cả button
+            buttons.forEach(btn => btn.classList.remove("active"));
+
+            // Bỏ active của tất cả nội dung
+            contents.forEach(content => content.classList.remove("active"));
+
+            // Active button vừa bấm
+            button.classList.add("active");
+
+            // Hiển thị nội dung tương ứng
+            const id = button.dataset.tab;
+            document.getElementById(id).classList.add("active");
+
+        });
+
+});
+
+// 
+const database = [
+
+{
+    min: 1,
+    max: 7,
+    material: "Sp - Sp <br/> Sp - Stp <br/> Stp - Fin ",
+    wps: "AF0808 <br/> AF0808 <br/> AF0708",
+    electrode: "E308H <br/> E308H <br/> ErNicr3",
+    size: "[29<mark>29</mark>] <br/> [58<mark>75</mark>] <br/> [88<mark>21</mark>] <br/> [117<mark>67</mark>] <br/> [147<mark>13</mark>] <br/> [161<mark>86</mark>] <br/> [176<mark>59</mark>] <br/> [191<mark>32</mark>] <br/> [206<mark>05</mark>]"
+},
+
+{
+    min: 8,
+    max: 10,
+    material: "Sp - Sp <br/> Sp - Stp <br/> Stp - Fin ",
+    wps: "AF0808 <br/> AF0808 <br/> AF0708",
+    electrode: "E308H <br/> E308H <br/> ErNicr3",
+    size: "[29<mark>43</mark>] <br/> [58<mark>89</mark>] <br/> [88<mark>35</mark>] <br/> [117<mark>81</mark>] <br/> [147<mark>27</mark>] <br/> [162<mark>00</mark>] <br/> [176<mark>73</mark>] <br/> [191<mark>46</mark>] <br/> [206<mark>19</mark>]"
+    
+},
+
+{
+    min: 11,
+    max: 13,
+    material: "Sp - Sp <br/> Sp - Seleve <br/> Stp - Tube  ",
+    wps: "AF0808 <br/> AF0808 <br/> AF0708",
+    electrode: "E309H <br/> E309H <br/> ErNicr3",
+    size: "[29<mark>43</mark>] <br/> [58<mark>89</mark>] <br/> [88<mark>35</mark>] <br/> [117<mark>81</mark>] <br/> [147<mark>27</mark>] <br/> [176<mark>73</mark>] <br/> [206<mark>19</mark>]"
+},
+
+{
+    min: 14,
+    max: 19,
+    material: "Sp - Sp <br/> Sp - Stp <br/> Stp - Fin  ",
+    wps: "AF0808 <br/> AF0808 <br/> AF0708",
+    electrode: "E309H <br/> E309H <br/> ErNicr3",
+    size: "[29<mark>43</mark>] <br/> [58<mark>89</mark>] <br/> [88<mark>35</mark>] <br/> [117<mark>81</mark>] <br/> [147<mark>27</mark>] <br/> [176<mark>73</mark>] <br/> [206<mark>19</mark>]"
+},
+
+{
+    min: 20,
+    max: 25,
+    material: "Sp - Sp <br/> Sp - Stp <br/> Stp - Fin  ",
+    wps: "AF0505P <br/> AF0507P <br/> AF0107P",
+    electrode: "E91T-B3 <br/> ErNicr3 <br/> E309H",
+    size: "[29<mark>29</mark>] <br/> [58<mark>75</mark>] <br/> [88<mark>21</mark>] <br/> [117<mark>67</mark>] <br/> [147<mark>13</mark>] <br/> [176<mark>59</mark>] <br/> [206<mark>05</mark>]"
+},
+
+{
+    min: 26,
+    max: 33,
+    material: "Sp - Sp <br/> Sp - Seleve <br/> Stp - Tube  ",
+    wps: "AF0101 <br/> AF0101 <br/> AF0101",
+    electrode: "E71T-1C <br/> E71T-1C <br/> E71T-1C",
+    size: "[29<mark>43</mark>] <br/> [58<mark>89</mark>] <br/> [88<mark>35</mark>] <br/> [117<mark>81</mark>] <br/> [147<mark>27</mark>] <br/> [176<mark>73</mark>] <br/> [206<mark>19</mark>]"
+},
+
+];
+
+
+function searchData(){
+
+    const value = Number(document.getElementById("search").value);
+
+    const tbody = document.querySelector("tbody");
+    tbody.innerHTML = "";
+
+    const result = database.find(item =>
+        value >= item.min && value <= item.max
+    );
+
+    document.getElementById("table").style.display = "table";
+
+    if(result){
+
+        tbody.innerHTML = `
+        <tr>
+            <td>${result.material}</td>
+            <td>${result.wps}</td>
+            <td>${result.electrode}</td>
+            <td> ${result.size}</td>
+        </tr>
+        `;
+
+    }else{
+
+        tbody.innerHTML = `
+        <tr>
+            <td colspan="4">Không tìm thấy dữ liệu</td>
+        </tr>
+        `;
+
+    }
+
+}
+</script>
+</body>
+</html>
