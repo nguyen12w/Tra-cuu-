@@ -2,10 +2,48 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>WPS Search</title>
 
 
 <style>
+    .table-wrapper{
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+}
+
+@media (max-width:768px){
+
+.tabs{
+    flex-direction:column;
+}
+
+.tab-btn{
+    width:100%;
+    font-size:16px;
+}
+
+input{
+    width:100%;
+    box-sizing:border-box;
+    margin-bottom:10px;
+    font-size:18px;
+}
+
+button{
+    width:100%;
+    font-size:18px;
+}
+
+.material-table{
+    min-width:900px;
+}
+
+#table{
+    font-size:15px;
+}
+}
+
     .tabs{
     display:flex;
     gap:10px;
@@ -44,7 +82,6 @@
 input{
 
     padding:10px;
-    width:180px;
 
 }
 
