@@ -589,16 +589,12 @@ tr:nth-child(even){
 
         button.addEventListener("click", () => {
 
-            // Bỏ active của tất cả button
             buttons.forEach(btn => btn.classList.remove("active"));
 
-            // Bỏ active của tất cả nội dung
             contents.forEach(content => content.classList.remove("active"));
 
-            // Active button vừa bấm
             button.classList.add("active");
 
-            // Hiển thị nội dung tương ứng
             const id = button.dataset.tab;
             document.getElementById(id).classList.add("active");
 
@@ -613,7 +609,7 @@ const database = [
     min: 1,
     max: 7,
     material: "Sp - Sp <br/> Sp - Stp <br/> Stp - Fin ",
-    wps: "AF-0808 <br/> AF-0808 <br/> AF-0708",
+    wps: "AF-0808P <br/> AF-0808P <br/> AF-0708P",
     electrode: "E-308H <br/> E-308H <br/> Er.Nicr3",
     size: "[29<mark>29</mark>] <br/> [58<mark>75</mark>] <br/> [88<mark>21</mark>] <br/> [117<mark>67</mark>] <br/> [147<mark>13</mark>] <br/> [161<mark>86</mark>] <br/> [176<mark>59</mark>] <br/> [191<mark>32</mark>] <br/> [206<mark>05</mark>]"
 },
@@ -622,7 +618,7 @@ const database = [
     min: 8,
     max: 10,
     material: "Sp - Sp <br/> Sp - Stp <br/> Stp - Fin ",
-    wps: "AF-0808 <br/> AF-0808 <br/> AF-0708",
+    wps: "AF-0808P <br/> AF-0808P <br/> AF-0708P",
     electrode: "E-308H <br/> E-308H <br/> Er.Nicr3",
     size: "[29<mark>43</mark>] <br/> [58<mark>89</mark>] <br/> [88<mark>35</mark>] <br/> [117<mark>81</mark>] <br/> [147<mark>27</mark>] <br/> [162<mark>00</mark>] <br/> [176<mark>73</mark>] <br/> [191<mark>46</mark>] <br/> [206<mark>19</mark>]"
     
@@ -632,7 +628,7 @@ const database = [
     min: 11,
     max: 13,
     material: "Sp - Sp <br/> Sp - Seleve <br/> Stp - Tube  ",
-    wps: "AF-0808 <br/> AF-0808 <br/> AF-0708",
+    wps: "AF-0808P <br/> AF-0808P <br/> AF-1543P",
     electrode: "E-309H <br/> E-309H <br/> Er.Nicr3",
     size: "[29<mark>43</mark>] <br/> [58<mark>89</mark>] <br/> [88<mark>35</mark>] <br/> [117<mark>81</mark>] <br/> [147<mark>27</mark>] <br/> [176<mark>73</mark>] <br/> [206<mark>19</mark>]"
 },
@@ -641,7 +637,7 @@ const database = [
     min: 14,
     max: 19,
     material: "Sp - Sp <br/> Sp - Stp <br/> Stp - Fin  ",
-    wps: "AF-0808 <br/> AF-0808 <br/> AF-0708",
+    wps: "AF-0808P <br/> AF-0808P <br/> AF-0708P",
     electrode: "E-309H <br/> E-309H <br/> Er.Nicr3",
     size: "[29<mark>43</mark>] <br/> [58<mark>89</mark>] <br/> [88<mark>35</mark>] <br/> [117<mark>81</mark>] <br/> [147<mark>27</mark>] <br/> [176<mark>73</mark>] <br/> [206<mark>19</mark>]"
 },
@@ -659,7 +655,7 @@ const database = [
     min: 26,
     max: 33,
     material: "Sp - Sp <br/> Sp - Seleve <br/> Stp - Tube  ",
-    wps: "AF-0101 <br/> AF-0101 <br/> AF-0101",
+    wps: "AF-0101P <br/> AF-0101P <br/> AF-0101P",
     electrode: "E71T-1C <br/> E71T-1C <br/> E71T-1C",
     size: "[29<mark>43</mark>] <br/> [58<mark>89</mark>] <br/> [88<mark>35</mark>] <br/> [117<mark>81</mark>] <br/> [147<mark>27</mark>] <br/> [176<mark>73</mark>] <br/> [206<mark>19</mark>]"
 },
